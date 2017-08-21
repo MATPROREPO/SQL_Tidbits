@@ -1,3 +1,9 @@
+/*Creation of an auxiliary calendar table within Microsoft TSQL; note query relies upon the auxiliary integers table; 
+  this reliance could be replaced by using any other source of a series of integer values*/
+/*Table is constructed over a series of queries, with the first populating the initial date data, and subsequent updates 
+  adding useful information such as holiday, day number, occurrance of a specific date within the month, etc.*/
+
+/*First construct base table*/
 CREATE TABLE auxiliary.calendar (dt DATETIME, yr INT, qtr INT, mnth INT, wk INT, dy INT, dyNum INT, wkDyNum INT
 	, mnthNme VARCHAR(10), dyNme VARCHAR(10), isWeekday BIT, isHoliday BIT, isMarketDay BIT, isLeapYear BIT
 	, isLeapDay BIT, dtDesc VARCHAR(50),mnthWk INT, mnthDy INT,isLastWeekdayInMonth BIT)
